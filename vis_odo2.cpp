@@ -24,7 +24,7 @@ Mat K = (Mat_<double>(3,3) << 1300.916421, 0.000000, 693.632446, //left camera m
                           0.000000, 1236.693231, 263.159396, 
                           0.000000, 0.000000, 1.000000);
 
-Mat M = (Mat_<double>(3,4) << 1.0, 0.0, 0.0, 0.0, //left camera matrix
+Mat M = (Mat_<double>(3,4) << 1.0, 0.0, 0.0, 0.0,
                               0.0, 1.0, 0.0, 0.0, 
                               0.0, 0.0, 1.0, 0.0);
  //Mat P1(3,4, CV_32FC1);
@@ -86,7 +86,7 @@ sprintf(filename1, "img_%d.jpg", 0);
 cout<<img1.size()<<endl; 
    if(!img1.data||!img2.data)
     {
-        cout<<"gadbad hai"<<endl;
+        cout<<"images not read"<<endl;
     }
 char text[100];
   int fontFace = FONT_HERSHEY_PLAIN;
@@ -116,7 +116,9 @@ char text[100];
     //cout<<points_2.size()<<endl; 
   //  feature tracking
     //using optical flow with KLT
-    vector<uchar> status;
+ //features have been tracked using Optical FLow with KLT tracker.
+  
+  vector<uchar> status;
     vector<float> err;
     Size winSize = Size(21,21);
     TermCriteria termcrit = TermCriteria(TermCriteria::COUNT+TermCriteria::EPS,30,0.01);
